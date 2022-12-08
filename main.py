@@ -36,7 +36,7 @@ def move():
     # TODO add your implementation here to replace the random response
     dims = request.json['arena']['dims']
 
-    my_state = request.json['arena']['state']['https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app']
+    my_state = request.json['arena']['state']['https://cloud-run-hackathon-python-xp5leyhpkq-uc.a.run.app']
 
     all_state = request.json['arena']['state']
 
