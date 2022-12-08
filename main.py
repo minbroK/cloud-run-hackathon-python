@@ -46,14 +46,14 @@ def move():
             if key != 'https://cloud-run-hackathon-python-xp5leyhpkq-uc.a.run.app':
                 if my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
                     if my_state['direction'] == 'E' or my_state['direction'] == 'N':
-                        return 'R'
-                    else:
                         return 'L'
+                    else:
+                        return 'R'
                 elif my_state['x'] <= (value['x'] + 3) and my_state['y'] == value['y']:
                     if my_state['direction'] == 'N' or my_state['direction'] == 'E':
-                        return 'L'
-                    else:
                         return 'R'
+                    else:
+                        return 'L'
 
    
 
@@ -61,13 +61,13 @@ def move():
         if my_state['direction'] == 'N' :
             return 'F'
         elif my_state['direction'] == 'E' or my_state['direction'] == 'S':
-            return 'L'
+            return 'R'
         elif my_state['direction'] == 'W' :
             return 'R'
 
 
     if  my_state['x'] < (dims[0] - 1) :
-        if my_state['direction'] == 'E' :
+        if my_state['direction'] == 'L' :
             return 'F'
         elif my_state['direction'] == 'W' or my_state['direction'] == 'N':
             return 'R'
