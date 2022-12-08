@@ -35,60 +35,7 @@ def move():
     
     # TODO add your implementation here to replace the random response
     
-    my_state = request.json['arena']['state']['https://cloud-run-hackathon-python-xp5leyhpkq-uc.a.run.app']
-    all_state = request.json['arena']['state']
-
-    if my_state['x'] == (dims[0] - 1) and my_state['y'] == 0 :
-        for key, value in all_state.items():
-            if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
-                if my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
-                    if my_state['direction'] == 'S':
-                        return 'T'
-                    elif my_state['direction'] == 'E' or my_state['direction'] == 'N':
-                        return 'R'
-                    else:
-                        return 'L'
-                elif my_state['x'] <= (value['x'] + 3) and my_state['y'] == value['y']:
-                    if my_state['direction'] == 'W':
-                        return 'T'
-                    elif my_state['direction'] == 'N' or my_state['direction'] == 'E':
-                        return 'L'
-                    else:
-                        return 'R'
-
-    
-
-    if my_state['y'] > 0:
-        if my_state['direction'] == 'N' :
-            for key, value in all_state.items():
-                if key != 'https://cloud-run-hackathon-python-xp5leyhpkq-uc.a.run.app':
-                    if my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
-                        return 'T'
-            return 'F'
-        elif my_state['direction'] == 'E' or my_state['direction'] == 'S':
-            return 'L'
-        elif my_state['direction'] == 'W' :
-            return 'R'
-
-
-
-    if  my_state['x'] < (dims[0] - 1) :
-        if my_state['direction'] == 'E' :
-            for key, value in all_state.items():
-                if key != 'https://cloud-run-hackathon-python-xp5leyhpkq-uc.a.run.app':
-                    if my_state['x'] >= (value['x'] - 3) and my_state['y'] == value['y']:
-                        return 'T'
-            return 'F'
-        elif my_state['direction'] == 'W' or my_state['direction'] == 'N':
-            return 'R'
-        elif my_state['direction'] == 'S' :
-            return 'L'
-
-    return 'T'
-    
-    /*----------랜덤으로 움직이기---------------
     return moves[random.randrange(len(moves))]
-    -----------------------------------------*/
 
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
